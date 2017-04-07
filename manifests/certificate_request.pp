@@ -1,5 +1,5 @@
 define cfssl::certificate_request (
-  Enum[ca, server, client] $profile,
+  Enum[ca, server, client, client-server] $profile,
   Array[String]            $hosts,
   String                   $remote_address,
   Integer[0]               $remote_port    = $cfssl::service_port,
