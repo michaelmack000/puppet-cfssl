@@ -23,20 +23,23 @@ class cfssl::params {
     'multirootca'     => "multirootca_linux-${arch}",
   }
 
-  $ca_manage        = false
-  $key_algo         = 'rsa'
-  $key_size         = 4096
-  $root_ca_id       = 'ca'
-  $root_ca_name     = 'My Root CA'
-  $root_ca_expire   = '262800h' #30 years (24x356x30)
-  $intermediate_ca_id     = 'intermediate-ca'
-  $intermediate_ca_name   = 'My Intermediate CA'
-  $intermediate_ca_expire = '42720h'
-  $country          = 'UK'
-  $state            = 'England'
-  $city             = 'Leeds'
-  $organization     = 'My Company'
-  $org_unit         = 'My Unit'
+  $ca_manage               = false
+  $key_algo                = 'rsa'
+  $key_size                = 4096
+  $root_ca_id              = 'ca'
+  $root_ca_name            = 'My Root CA'
+  $root_ca_expire          = '262800h' #30 years (24x356x30)
+  $intermediate_ca_id      = 'intermediate-ca'
+  $intermediate_ca_name    = 'My Intermediate CA'
+  $intermediate_ca_expire  = '42720h'
+  $cr_server_expire        = '35040h'
+  $cr_client_expire        = '35040h'
+  $cr_client_server_expire = '35040h'
+  $country                 = 'UK'
+  $state                   = 'England'
+  $city                    = 'Leeds'
+  $organization            = 'My Company'
+  $org_unit                = 'My Unit'
 
   $service_manage   = $ca_manage
   $service_ensure   = 'running'
