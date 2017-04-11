@@ -16,7 +16,6 @@ class cfssl::install inherits cfssl {
   $cfssl::binaries.each |$key, $value| {
     archive { "${cfssl::download_dir}/${value}":
       source  => "${cfssl::download_url}/${value}",
-      verbose => true,
       user    => 'root',
       group   => 'root',
       require => File[ $cfssl::download_dir ],
