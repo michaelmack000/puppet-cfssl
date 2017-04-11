@@ -1,7 +1,7 @@
 define cfssl::sign (
   String  $ca_id,
   String  $csr_file,
-  Enum[ca, server, client]
+  Enum[ca, server, client, client-server]
           $profile,
 ) {
 

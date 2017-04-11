@@ -1,5 +1,5 @@
 define cfssl::certificate_request (
-  Enum[ca, server, client] $profile,
+  Enum[ca, server, client, client-server] $profile,
   Array[String]            $hosts,
   String                   $remote_address,
   Integer[0]               $remote_port    = $cfssl::service_port,
@@ -21,7 +21,7 @@ define cfssl::certificate_request (
   exec { "req-${common_name}":
   command     => "cfssl gencert -remote ${remote_address}:${remote_port} -profile ${profile} -hostname ${hosts.join(',')} ${cfssl::conf_dir}/${common_name}-csr.json | cfssljson -bare ${common_name}",
   cwd         => $cfssl::conf_dir,
-  creates     => [ "${cfssl::conf_dir}/${common_name}.pem", "${cfssl::conf_dir}/${common_name}.csr", "${cfssl::conf_dir}/${common_name}-key.pem" ],
+  creates     => [ "${cfssl::conf_dir}/${common_name}.pem", "${cfssl::conf_dir}/${common_name}-key.pem" ],
   provider    => shell,
   path        => [ $cfssl::install_dir ],
   timeout     => 0,

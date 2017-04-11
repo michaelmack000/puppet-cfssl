@@ -23,7 +23,7 @@ class cfssl::config () inherits cfssl {
     ->
     file { "${cfssl::conf_dir}/signing.json":
       ensure => file,
-      source => "puppet:///modules/${module_name}/signing.json",
+      source => template("${module_name}/signing.json.erb"),
     }
     ->
     cfssl::sign { "${cfssl::intermediate_ca_id}-signed":

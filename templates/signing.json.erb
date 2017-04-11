@@ -16,21 +16,21 @@
         "is_ca": true
       },
       "server": {
-        "expiry": "8760h",
+        "expiry": "<%= @cr_server_expire%>",
         "usages": [
           "key encipherment",
           "server auth"
         ]
       },
       "client": {
-        "expiry": "8760h",
+        "expiry": "<%= @cr_client_expire%>",
         "usages": [
           "key encipherment",
           "client auth"
         ]
       },
       "client-server": {
-        "expiry": "8760h",
+        "expiry": "<%= @cr_client_server_expire%>",
         "usages": [
           "key encipherment",
           "server auth",
