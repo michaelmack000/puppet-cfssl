@@ -27,7 +27,6 @@ exec { "req-${common_name}":
                 ],
   provider  => shell,
   path      => [ $cfssl::install_dir ],
-  timeout   => 0,
   logoutput => true,
   require   => File["${cfssl::conf_dir}/${common_name}-csr.json"],
   }
