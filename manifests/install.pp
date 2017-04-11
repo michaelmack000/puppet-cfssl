@@ -10,30 +10,28 @@ class cfssl::install inherits cfssl {
   }
 
   if $cfssl::wget_manage {
-    require ::wget
-  }
 
-  $cfssl::binaries.each |$key, $value| {
-    archive { "${cfssl::download_dir}/${value}":
-      source  => "${cfssl::download_url}/${value}",
-      user    => 'root',
-      group   => 'root',
-      require => File[ $cfssl::download_dir ],
-    }
-    ->
-    file { "${cfssl::download_dir}/${value}":
-      ensure => file,
-      owner  => 'root',
-      group  => 'root',
-      mode   => '0755',
-    }
-    ->
-    file { "${cfssl::install_dir}/${key}":
-      ensure => link,
-      owner  => 'root',
-      group  => 'root',
-      mode   => '0755',
-      target => "${cfssl::download_dir}/${value}",
+    $cfssl::binaries.each |$key, $value| {
+      archive { "${cfssl::download_dir}/${value}":
+        source  => "${cfssl::download_url}/${value}",
+        user    => 'root',
+        group   => 'root',
+        require => File[ $cfssl::download_dir ],
+      }
+      ->
+      file { "${cfssl::download_dir}/${value}":
+        ensure => file,
+        owner  => 'root',
+        group  => 'root',
+        mode   => '0755',
+      }
+      ->
+      file { "${cfssl::install_dir}/${key}":
+        ensure => link,
+        owner  => 'root',
+        group  => 'root',
+        mode   => '0755',
+        target => "${cfssl::download_dir}/${value}",
+      }
     }
   }
-}
