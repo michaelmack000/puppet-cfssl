@@ -35,3 +35,4 @@ class cfssl::install inherits cfssl {
       }
     }
   }
+}
