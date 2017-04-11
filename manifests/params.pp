@@ -32,9 +32,9 @@ class cfssl::params {
   $intermediate_ca_id      = 'intermediate-ca'
   $intermediate_ca_name    = 'My Intermediate CA'
   $intermediate_ca_expire  = '42720h'
-  $cr_server_expire        = '35040h'
-  $cr_client_expire        = '35040h'
-  $cr_client_server_expire = '35040h'
+  $cr_server_expire        = '35040h' #default fours years
+  $cr_client_expire        = '35040h' #default fours years
+  $cr_client_server_expire = '35040h' #default fours years
   $country                 = 'UK'
   $state                   = 'England'
   $city                    = 'Leeds'

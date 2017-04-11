@@ -14,11 +14,12 @@ class cfssl::install inherits cfssl {
   }
 
   $cfssl::binaries.each |$key, $value| {
-    wget::retrieve { "${cfssl::download_url}/${value}":
-      destination => "${cfssl::download_dir}/${value}",
-      verbose     => true,
-      mode        => '0755',
-      require     => File[ $cfssl::download_dir ],
+    archive { "${cfssl::download_dir}/${value}":
+      source  => "${cfssl::download_url}/${value}",
+      verbose => true,
+      user    => 'root',
+      group   => 'root',
+      require => File[ $cfssl::download_dir ],
     }
     ->
     file { "${cfssl::download_dir}/${value}":
