@@ -1,6 +1,4 @@
-# rehan-cfssl
-
-[![Build Status](https://travis-ci.org/rehanone/puppet-cfssl.svg?branch=master)](https://travis-ci.org/rehanone/puppet-cfssl)
+# forked from rehanone/puppet-cfssl
 
 #### Table of Contents
 1. [Overview](#overview)
@@ -13,13 +11,13 @@
 6. [Development](#development)
 
 ## Overview
-The `rehan-cfssl` module for installing, managing and generating SSL certificates using CloudFlare's PKI toolkit - CFSSL.
+The `mmack-cfssl` module for installing, managing and generating SSL certificates using CloudFlare's PKI toolkit - CFSSL.
 
 ## Module Description
-A puppet module for managing the installation and configuration of CloudFlare's PKI toolkit. This module installs and 
+A puppet module for managing the installation and configuration of CloudFlare's PKI toolkit. This module installs and
 configures CFSSL as a service so clients can request certificates from the local PKI server.
 
-CFSS is not the easiest toolkit to understand and work with. The main reason is lack of proper documentation. However, 
+CFSS is not the easiest toolkit to understand and work with. The main reason is lack of proper documentation. However,
 more information on it is available at:
 
   - [cfssl.org](https://cfssl.org/ "cfssl.org")
@@ -34,9 +32,9 @@ more information on it is available at:
 * Allow multiple Intermediate CA certificates.
 
 ## Setup
-In order to install `rehan-cfssl`, run the following command:
+In order to install `mmack-cfssl`, run the following command:
 ```bash
-$ sudo puppet module install rehan-cfssl
+$ sudo puppet module install mmack-cfssl
 ```
 The module does expect all the data to be provided through 'Hiera'. See [Usage](#usage) for examples on how to configure it.
 
@@ -91,7 +89,7 @@ class{ 'cfssl':
 * **requests**: A hash of certificate requests, see `cfssl::certificate_request` for more details.
 
 
-All of this data can be provided through `Hiera`. 
+All of this data can be provided through `Hiera`.
 
 ##### For PKI Server
 

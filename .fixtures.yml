@@ -2,9 +2,5 @@ fixtures:
   forge_modules:
     stdlib:
       repo: "puppetlabs/stdlib"
-  repositories:
-    wget:
-      repo: 'https://github.com/rehanone/puppet-wget.git'
-      ref: '1.1.2'
   symlinks:
     cfssl: "#{source_dir}"
