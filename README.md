@@ -65,7 +65,7 @@ class{ 'cfssl':
 
 ##### Parameters
 
-* **wget_manage**: This module use `wget` to download the cfssl binaries. By default this module uses [rehan-wget](https://forge.puppet.com/rehan/wget) to manage `wget` installation. That behaviour can be disabled with this option.
+* **wget_manage**: This module use `archive` to download the cfssl binaries. That behaviour can be disabled with this option.
 * **download_url**: Download URL for cfssl binaries, the default is https://pkg.cfssl.org/R1.2.
 * **download_dir**: Download loaction for cfssl binaries. The default value `/opt/cfssl`.
 * **install_dir**: Install location for cfssl binaries. The default is `/usr/local/bin`.
@@ -76,7 +76,10 @@ class{ 'cfssl':
 * **root_ca_name**: The name for the Root CA. The default is `My Root CA`.     
 * **root_ca_expire**: Time in hours for the CA to expire. The default is `262800h` (30 years).     
 * **intermediate_ca_name**: The name for the Intermediate CA. The default is `My Intermediate CA`.     
-* **intermediate_ca_expire**: Time in hours for the CA to expire. The default is `42720h`.     
+* **intermediate_ca_expire**: Time in hours for the CA to expire. The default is `42720h`.   
+* **cr_server_expire**: Time in hours for the CA to expire. The default is `35040h`.
+* **cr_client_expire**: Time in hours for the CA to expire. The default is `35040h`.
+* **cr_client_server_expire**: Time in hours for the CA to expire. The default is `35040h`.
 * **service_manage**: Controls if the service will be created to generate certificates on a CA server. The default is same as`ca_manage`.
 * **service_ensure**: Controls the status of the service. The default is `running`.
 * **service_enable**: Enables or disables the service. the default is `true`.
@@ -169,12 +172,11 @@ cfssl::certificate_request { 'example.com':
 ## Dependencies
 
 * [stdlib][1]
-* [wget][2]
 
 [1]:https://forge.puppet.com/puppetlabs/stdlib
 [2]:https://forge.puppet.com/rehan/wget
 
 ## Development
 
-You can submit pull requests and create issues through the official page of this module: https://github.com/rehan/puppet-cfssl.
+You can submit pull requests and create issues through the official page of this module: https://github.com/michaelmack000/puppet-cfssl.
 Please do report any bug and suggest new features/improvements.
