@@ -13,18 +13,17 @@ define cfssl::certificate_request (
   String                   $org_unit       = $cfssl::org_unit,
 ) {
 
-  file { "${cfssl::conf_dir}/${common_name}-csr.json":
-    ensure  => present,
-    content => template("${module_name}/ca-csr.json.erb"),
-  }
+file { "${cfssl::conf_dir}/${common_name}-csr.json":
+  ensure  => present,
+  content => template("${module_name}/ca-csr.json.erb"),
+}
 
-  exec { "req-${common_name}":
+exec { "req-${common_name}":
   command   => "cfssl gencert -remote ${remote_address}:${remote_port} -profile ${profile} -hostname ${hosts.join(',')} ${cfssl::conf_dir}/${common_name}-csr.json | cfssljson -bare ${common_name}",
   cwd       => $cfssl::conf_dir,
   creates   => [
                   "${cfssl::conf_dir}/${common_name}.pem",
                   "${cfssl::conf_dir}/${common_name}-key.pem",
-                  "${cfssl::conf_dir}/${common_name}-csr.json"
                 ],
   provider  => shell,
   path      => [ $cfssl::install_dir ],
