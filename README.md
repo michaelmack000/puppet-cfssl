@@ -168,7 +168,7 @@ cfssl::certificate_request { 'example.com':
 
 * **common_name** Common Name for the certficate, the default is `$title`.
 * **hosts** Alternative host names for this certficate.
-* **profile Can specify the type of cert client, server, and client and server.
+* **profile** Can specify the type of cert client, server, and client and server.
 
 ## Dependencies
 
