@@ -1,12 +1,12 @@
 {
-  "name": "rehan-cfssl",
-  "version": "1.1.0",
+  "name": "mmack-cfssl",
+  "version": "1.0.0",
   "author": "Rehan Mahmood",
-  "summary": "A puppet module for installing, managing and generating SSL certificates using CloudFlare's PKI toolkit - CFSSL",
+  "summary": "Forked from rehanone/puppet-cfssl.  A puppet module for installing, managing and generating SSL certificates using CloudFlare's PKI toolkit - CFSSL",
   "license": "Apache-2.0",
-  "source": "https://github.com/rehanone/puppet-cfssl.git",
-  "project_page": "https://github.com/rehanone/puppet-cfssl",
-  "issues_url": "https://github.com/rehanone/puppet-cfssl/issues",
+  "source": "https://github.com/michaelmack000/puppet-cfssl.git",
+  "project_page": "https://github.com/michaelmack000/puppet-cfssl",
+  "issues_url": "https://github.com/michaelmack000/puppet-cfssl/issues",
   "tags": [
     "cfssl",
     "ssl",
