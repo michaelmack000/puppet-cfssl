@@ -18,6 +18,7 @@
       "server": {
         "expiry": "<%= @cr_server_expire%>",
         "usages": [
+          "signing",
           "key encipherment",
           "server auth"
         ]
@@ -25,6 +26,7 @@
       "client": {
         "expiry": "<%= @cr_client_expire%>",
         "usages": [
+          "signing",
           "key encipherment",
           "client auth"
         ]
@@ -32,6 +34,7 @@
       "client-server": {
         "expiry": "<%= @cr_client_server_expire%>",
         "usages": [
+          "signing",
           "key encipherment",
           "server auth",
           "client auth"
