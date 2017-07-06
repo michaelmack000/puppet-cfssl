@@ -13,7 +13,7 @@ class cfssl::params {
       $conf_dir         = '/etc/cfssl'
     }
     'Windows': {
-      $download_dir     = 'c:/cfssl'
+      $download_dir     = 'c:/Windows/Temp/cfssl'
       $install_dir      = 'c:/Windows/System32/WindowsPowerShell/v1.0'
       $conf_dir         = 'c:/cfssl'
     }
