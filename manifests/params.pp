@@ -3,24 +3,35 @@
 class cfssl::params {
   $wget_manage      = true
   $download_url     = 'https://pkg.cfssl.org/R1.2'
-  $download_dir     = '/opt/cfssl'
-  $install_dir      = '/usr/local/bin'
-  $conf_dir         = '/etc/cfssl'
   $keys_dir         = "${conf_dir}/keys"
   $certs_dir        = "${conf_dir}/certs"
+
+  case $::kernel {
+    'Linux': {
+      $download_dir     = '/opt/cfssl'
+      $install_dir      = '/usr/local/bin'
+      $conf_dir         = '/etc/cfssl'
+    }
+    'Windows': {
+      $download_dir     = 'c:/cfssl'
+      $install_dir      = 'c:/Windows/System32/WindowsPowerShell/v1.0'
+      $conf_dir         = 'c:/cfssl'
+    }
+  }
+
   $arch = $::facts['architecture'] ? {
     'i386'  => '386',
     default => 'amd64',
   }
   $binaries   = {
-    'cfssl-bundle'    => "cfssl-bundle_linux-${arch}",
-    'cfssl-certinfo'  => "cfssl-certinfo_linux-${arch}",
-    'cfssl-newkey'    => "cfssl-newkey_linux-${arch}",
-    'cfssl-scan'      => "cfssl-scan_linux-${arch}",
-    'cfssl'           => "cfssl_linux-${arch}",
-    'cfssljson'       => "cfssljson_linux-${arch}",
-    'mkbundle'        => "mkbundle_linux-${arch}",
-    'multirootca'     => "multirootca_linux-${arch}",
+    'cfssl-bundle'    => "cfssl-bundle_${::kernel}-${arch}",
+    'cfssl-certinfo'  => "cfssl-certinfo_${::kernel}-${arch}",
+    'cfssl-newkey'    => "cfssl-newkey_${::kernel}-${arch}",
+    'cfssl-scan'      => "cfssl-scan_${::kernel}-${arch}",
+    'cfssl'           => "cfssl_${::kernel}-${arch}",
+    'cfssljson'       => "cfssljson_${::kernel}-${arch}",
+    'mkbundle'        => "mkbundle_${::kernel}-${arch}",
+    'multirootca'     => "multirootca_${::kernel}-${arch}",
   }
 
   $ca_manage               = false
