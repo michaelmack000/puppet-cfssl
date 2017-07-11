@@ -25,7 +25,7 @@ exec { "req-${common_name}":
                   "${cfssl::conf_dir}/${common_name}.pem",
                   "${cfssl::conf_dir}/${common_name}-key.pem",
                 ],
-  provider  => shell,
+  provider  => "${cfssl::provider}",
   path      => [ $cfssl::install_dir ],
   logoutput => true,
   require   => File["${cfssl::conf_dir}/${common_name}-csr.json"],

@@ -11,11 +11,13 @@ class cfssl::params {
       $download_dir     = '/opt/cfssl'
       $install_dir      = '/usr/local/bin'
       $conf_dir         = '/etc/cfssl'
+      $provider         = 'shell'
     }
     'Windows': {
       $download_dir     = 'c:/Windows/Temp/cfssl'
       $install_dir      = 'c:/Windows/System32/WindowsPowerShell/v1.0'
       $conf_dir         = 'c:/cfssl'
+      $provider         = 'powershell'
     }
   }
 
